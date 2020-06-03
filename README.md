@@ -1,0 +1,1 @@
+This is a simple note taking app using python and mysql.
