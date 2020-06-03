@@ -8,6 +8,7 @@ db = mysql.connect(
     database="py-note-app"
 )
 
+# Views all notes from db
 def viewAllNotes():
     try:
         cursor = db.cursor()
@@ -18,7 +19,8 @@ def viewAllNotes():
         cursor.close()
     except:
         print("DB error: viewNotes")
-        
+  
+# Views single note by ID
 def viewNoteByID(noteID):
     try:
         cursor = db.cursor()
@@ -29,7 +31,9 @@ def viewNoteByID(noteID):
         cursor.close()
     except:
         print("DB error: viewNotes")
-        
+   
+   
+# Inserts note into db
 def createNote(noteTitle, noteBody):
     try:
         cursor = db.cursor()
@@ -40,7 +44,9 @@ def createNote(noteTitle, noteBody):
         cursor.close() 
     except:
         print("DB error: createNote")  
-    
+ 
+ 
+# Deletes a single note with ID
 def deleteNote(noteId):
     try:
         cursor = db.cursor()
