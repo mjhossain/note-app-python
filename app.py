@@ -1,6 +1,9 @@
 import database as db
 
 # db.viewNotes()
-# db.createNote('New Note', 'I am creating a note dynamically')
-db.viewNotes(1)
+# db.createNote('My Name', 'Hi I am Mohammed')
+# db.viewAllNotes()
+# db.viewNoteByID(6)
+db.deleteNote(5)
+
 
