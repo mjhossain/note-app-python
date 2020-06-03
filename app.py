@@ -1,4 +1,4 @@
-import test as test
+import database as db
 
-test.say('Hello from test')
+db.viewNotes()
 
