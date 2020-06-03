@@ -1,5 +1,4 @@
 import mysql.connector as mysql
-import time as time
 
 # Connecting to Database
 db = mysql.connect(
@@ -9,19 +8,19 @@ db = mysql.connect(
     database="py-note-app"
 )
 
-def viewNotes():
+def viewNotes(id):
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM notes")
+    cursor.execute("SELECT * FROM notes WHERE id = {0}".format(id))
     results = cursor.fetchall()
     for record in results:
         print('\n\nTitle: {0} \t\t Created: {1} \n\n{2}\n\n'.format(record[1], record[3], record[2]))
     cursor.close()
         
-def createNote():
+def createNote(noteTitle, noteBody):
     cursor = db.cursor()
-    date = time.strftime('%Y-%m-%d %H:%M:%S')
-    insert_query = "INSERT INTO notes(note_title, note_text) VALUES('from py', 'insert done from py')"
+    insert_query = "INSERT INTO notes(note_title, note_text) VALUES('{0}', '{1}')".format(noteTitle, noteBody)
     cursor.execute(insert_query)
     db.commit()
     print(cursor.rowcount, "Note added")
     cursor.close()    
+    
