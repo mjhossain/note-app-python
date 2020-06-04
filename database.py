@@ -32,18 +32,41 @@ def viewNoteByID(noteID):
     except:
         print("DB error: viewNotes")
    
+
+# Get note body Text
+def getNoteBody(noteID):
+    note = {}
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM notes WHERE id = {0}".format(noteID))
+    result = cursor.fetchall()
+    for record in result:
+        note['id'] = record[0]
+        note['title'] = record[1]
+        note['body'] = record[2]
+    cursor.close()
+    return note
+
+
+# Update Note
+def updateNote(noteID, noteBody):
+    cursor = db.cursor()
+    update_query = "UPDATE notes SET note_text = '{0}' WHERE id = {1}".format(noteBody, noteID)
+    cursor.execute(update_query)
+    db.commit()
+    cursor.close()
+    print('Note updated!\n\n')
    
 # Inserts note into db
 def createNote(noteTitle, noteBody):
-    try:
-        cursor = db.cursor()
-        insert_query = "INSERT INTO notes(note_title, note_text) VALUES('{0}', '{1}')".format(noteTitle, noteBody)
-        cursor.execute(insert_query)
-        db.commit()
-        print(cursor.rowcount, "Note added")
-        cursor.close() 
-    except:
-        print("DB error: createNote")  
+    # try:
+    cursor = db.cursor()
+    insert_query = "INSERT INTO notes(note_title, note_text) VALUES('{0}', '{1}')".format(noteTitle, noteBody)
+    cursor.execute(insert_query)
+    db.commit()
+    print(cursor.rowcount, "Note added")
+    cursor.close() 
+    # except:
+    #     print("DB error: createNote")  
  
  
 # Deletes a single note with ID
