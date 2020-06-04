@@ -22,6 +22,7 @@ def clear():
 
 # note.createNote()
 clear()
-db.viewNoteByID(7)
+# db.viewNoteByID(7)
 # note.appendNote(7)
+db.viewAllNotes()
 

@@ -18,5 +18,7 @@ def appendNote(nodeID):
     print('\n--------- Updating Note ----------\n')
     noteBody = note['body'] + '\n' + newNoteBody
     db.updateNote(nodeID, noteBody)
+
+
     
 
