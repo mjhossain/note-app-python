@@ -12,13 +12,6 @@ def clear():
         _ = system('clear')
 
 
-# parser = argparse.ArgumentParser(description='Personal Note App')
-# parser.add_argument('add', type=bool, help='To add a note')
-# parser.add_argument('rm', type=bool, help='To remove a note')
-# parser.add_argument('-t', '--title', type=str, help='Note title')
-
-# args = parser.parse_args()
-
 def displayHelp():
     print("""
     Personal Note App
@@ -54,22 +47,4 @@ if __name__ == '__main__':
     else:
         displayHelp()
 
-
-
-
-
-# db.viewNotes()
-# db.createNote('My Name', 'Hi I am Mohammed')
-# db.viewAllNotes()
-# db.viewNoteByID(6)
-# db.deleteNote(5)
-
-# msg = sys.stdin.read()
-# print(msg)
-
-# note.createNote()
-# clear()
-# db.viewNoteByID(7)
-# note.appendNote(7)
-# db.viewAllNotes()
 
