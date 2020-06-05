@@ -14,8 +14,9 @@ def viewAllNotes():
         cursor = db.cursor()
         cursor.execute("SELECT * FROM notes")
         results = cursor.fetchall()
+        print('\nID\tTitle\n')
         for record in results:
-            print('\n\nID: {0} \t Title: {1} \t Created: {2} '.format(record[0], record[1], record[3]))
+            print('{0}\t{1}'.format(record[0], record[1]))
         cursor.close()
     except:
         print("DB error: viewNotes")
