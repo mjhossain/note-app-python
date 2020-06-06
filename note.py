@@ -46,7 +46,8 @@ if __name__ == '__main__':
             note.listNotes()
         elif(sys.argv[1] == 'rm'):
             if(len(sys.argv) == 4):
-                note.removeNote(sys.argv[3])
+                noteID = int(sys.argv[3])
+                note.removeNote(noteID)
             else:
                 print('\nUsage of rm: app.py rm -id 4\n')
         elif(sys.argv[1] == 'open'):
